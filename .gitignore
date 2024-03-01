@@ -1,0 +1,10 @@
+venv
+*.csv
+/data
+__pycache__
+venv
+.DS_Store
+*.pyc
+*.zip
+*.bak
+
