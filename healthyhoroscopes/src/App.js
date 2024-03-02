@@ -37,14 +37,36 @@ const App = () => {
           element={<LightBackground name="" content={<Home />} />}
         />
 
-        <Route path="/login" element={<Login supabase={supabase} />} />
-        <Route path="/register" element={<Register supabase={supabase} />} />
-
+        {/* <Route path="/login" element={<Login supabase={supabase} />} /> */}
+        {/* <Route path="/register" element={<Register supabase={supabase} />} /> */}
+        <Route
+          path="/login"
+          element={
+            <LightBackground
+              backOption={false}
+              logout={false}
+              name="Affirmations"
+              content={<Login />}
+            />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <LightBackground
+              backOption={false}
+              logout={false}
+              name="Affirmations"
+              content={<Register />}
+            />
+          }
+        />
         <Route
           path="/activities/affirmations"
           element={
             <LightBackground
               backOption={true}
+              logOut={true}
               name="Affirmations"
               content={<Affirmations />}
             />
@@ -55,6 +77,7 @@ const App = () => {
           element={
             <LightBackground
               backOption={true}
+              logOut={true}
               name="Affirmations"
               content={<AffirmationHistory />}
             />
@@ -65,6 +88,7 @@ const App = () => {
           element={
             <LightBackground
               backOption={true}
+              logOut={true}
               name="Journaling"
               content={<Journaling />}
             />
@@ -75,6 +99,7 @@ const App = () => {
           element={
             <LightBackground
               backOption={true}
+              logOut={true}
               name="Journaling"
               content={<JournalHistory />}
             />
@@ -85,6 +110,7 @@ const App = () => {
           element={
             <LightBackground
               backOption={true}
+              logOut={true}
               name="Music"
               content={<Music />}
             />
@@ -95,6 +121,7 @@ const App = () => {
           element={
             <LightBackground
               backOption={true}
+              logOut={true}
               name="Activity"
               content={<Activity />}
             />
@@ -105,6 +132,7 @@ const App = () => {
           element={
             <LightBackground
               backOption={true}
+              logOut={true}
               name="Meditations"
               content={<Meditations />}
             />
@@ -115,6 +143,7 @@ const App = () => {
           element={
             <LightBackground
               backOption={true}
+              logOut={true}
               name="Resources"
               content={<Resources />}
             />
@@ -124,7 +153,8 @@ const App = () => {
           path="/more-info"
           element={
             <LightBackground
-              backOption={true}
+              backOption={false}
+              logOut={false}
               name="Tell us more!"
               content={<TellMore />}
             />

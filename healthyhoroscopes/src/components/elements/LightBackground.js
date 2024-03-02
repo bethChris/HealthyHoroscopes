@@ -2,10 +2,22 @@ import { useState, useEffect } from "react";
 import supabase from "../../supabase";
 import { useNavigate } from "react-router-dom";
 
-const LightBackground = ({ content, backOption, name }) => {
+const LightBackground = ({ content, logOut, backOption, name }) => {
   const [backButton, setBackButton] = useState(<></>);
+  const [logoutButton, setLogoutButton] = useState(<></>);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (logOut) {
+      setLogoutButton(
+        <button className="logoutButton" onClick={logOut}>
+          Log Out
+        </button>
+      );
+    } else {
+      setLogoutButton(<></>);
+    }
+  }, [logOut]);
   useEffect(() => {
     if (backOption) {
       setBackButton(
@@ -34,11 +46,7 @@ const LightBackground = ({ content, backOption, name }) => {
         <div className="center">
           <h1>{name}</h1>
         </div>
-        <div className="right">
-          <button className="logoutButton" onClick={logOut}>
-            Log Out
-          </button>
-        </div>
+        <div className="right">{logOut}</div>
       </div>
 
       <div className="content-body">{content}</div>
