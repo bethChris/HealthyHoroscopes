@@ -27,8 +27,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route
-          exact
-          path="/"
+          exact path="/"
           element={
             <LightBackground backOption={false} name="" content={<Home />} />
           }
@@ -42,12 +41,24 @@ const App = () => {
           }
         />
 
-        <Route path="/activities/affirmations" element={<Affirmations />} />
-        <Route path="/activities/journaling" element={<Journaling />} />
-        <Route path="/activities/music" element={<Music />} />
-        <Route path="/activities/activity" element={<Activity />} />
-        <Route path="/activities/meditations" element={<Meditations />} />
-        <Route path="/activities/resources" element={<Resources />} />
+        <Route path="/activities/affirmations" element={
+          <LightBackground backOption={true} name="Affirmations" content={<Affirmations/>} />
+        } />
+        <Route path="/activities/journaling" element={
+          <LightBackground backOption={true} name="Journaling" content={<Journaling/>} />
+        } />
+        <Route path="/activities/music" element={
+          <LightBackground backOption={true} name="Music" content={<Music/>} />
+        } />
+        <Route path="/activities/activity" element={
+          <LightBackground backOption={true} name="Activity" content={<Activity/>} />
+        } />
+        <Route path="/activities/meditations" element={
+          <LightBackground backOption={true} name="Meditations" content={<Meditations/>} />
+        } />
+        <Route path="/activities/resources" element={
+          <LightBackground backOption={true} name="Resources" content={<Resources/>} />
+        } />
         <Route path="/treyson" element={<Treyson />} />
       </Routes>
     </Router>
