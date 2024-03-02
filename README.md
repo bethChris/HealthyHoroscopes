@@ -62,9 +62,9 @@ npm run dev
 - Background stars: https://www.pngall.com/wp-content/uploads/15/Gold-Sparkle-PNG-Picture.png
 - Favicon: <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Freepik - Flaticon</a>
 
-## Dataset
+## Datasets
 
 - Music and Mental Health dataset: https://www.kaggle.com/datasets/catherinerasgaitis/mxmh-survey-results
   - Download csv and place csv in models folder
 
-"this is the start of the readme <3" -Bethany
+- Emotions dataset: https://www.kaggle.com/datasets/nelgiriyewithana/emotions/data?select=text.csv

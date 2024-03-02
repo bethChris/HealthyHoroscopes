@@ -32,20 +32,26 @@ const Login = () => {
   return (
     <div>
       <h2>Login</h2>
-      <input
+      
+      <div>
+      <input className="login-input"
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <input
+      <input className="login-input"
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleLogin}>Login</button>
-      <button onClick={handleRegister}>Register</button>
+      </div>
+      <div className="login">
+      <button className="login-input-button" onClick={handleLogin}>Login</button>
+      <button className="login-input-button" onClick={handleRegister}>Register</button>
+      </div>
+      
     </div>
   );
 };
