@@ -22,6 +22,7 @@ import Login from "./components/views/Login";
 import LightBackground from "./components/elements/LightBackground";
 import Register from "./components/views/Register";
 import TellMore from "./components/views/TellMore";
+import Mudkip from "./components/views/Mudkip";
 
 const supabase = createClient(
   process.env.REACT_APP_SUPABASE_URL,
@@ -169,6 +170,7 @@ const App = () => {
           }
         />
         <Route path="/treyson" element={<Treyson />} />
+        <Route path="/mudkip" element={<Mudkip />} />
       </Routes>
     </Router>
   );
