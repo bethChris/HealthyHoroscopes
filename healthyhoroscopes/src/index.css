@@ -3,7 +3,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #FFFFF2;
-  background-image: linear-gradient(to right, rgba(255, 255, 242, .4), rgba(255, 255, 242, .4)), url('assets/full-background.png');
+  background-image: linear-gradient(to right, rgba(255, 255, 242, .5), rgba(255, 255, 242, .5)), url('assets/full-background.png');
   background-size: cover, contain;
   background-position: center, right bottom;
   background-repeat: no-repeat, no-repeat;
@@ -155,6 +155,7 @@ code {
   font-family: Georgia, serif;
   font-size: 14pt;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 /* Styling for the submission button */
@@ -214,5 +215,86 @@ a {
 
 .bigger {
   font-size: 20pt;
+}
+
+label {
+  font-size: 16pt;
+  color: white;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Styles for unchecked state */
+input[type="checkbox"]:not(:checked) {
+  background-color: #fff;
+}
+
+/* Styles for checked state */
+input[type="checkbox"]:checked {
+  background-color: #2b3c49;
+  border: 1px solid #2b3c49;
+  color: #fff;
+}
+
+/* Hover styles */
+input[type="checkbox"]:hover {
+  border-color: #888;
+}
+
+/* Focus styles */
+input[type="checkbox"]:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+.label-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.symptom-rating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.rating-slider {
+  width: 80%;
+  margin: 10px 0;
+}
+
+.rating-value {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.dropdown-select {
+  padding: 10px;
+  font-size: 1em;
+  width: 200px;
+  margin-top: 5px;
+}
+
+/* You can customize the appearance of the selected option if needed */
+.dropdown-select option {
+  background-color: #fff;
+  color: #333;
 }
 
