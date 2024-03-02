@@ -8,12 +8,24 @@ In the root directory:
 `cd healthyhoroscopes`
 
 Run the frontend:
-`npm install`
-`npm start`
+
+```
+npm install
+```
+
+```
+npm start
+```
 
 Run the backend:
-`cd backend`
-`npm install`
+
+```
+cd backend
+```
+
+```
+npm install
+```
 
 Install the following python libraries with `pip` or `pip3 install` _package-name_ Or run `pip3 install -r requirements.txt`:
 
@@ -21,7 +33,9 @@ Install the following python libraries with `pip` or `pip3 install` _package-nam
 - `joblib`
 - `sckit-learn=1.3.1`
 
-`npm run dev`
+```
+npm run dev
+```
 
 ## Dev
 
