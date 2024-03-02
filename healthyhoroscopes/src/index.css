@@ -2,18 +2,18 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #0D0D1E;
-  background-image: url('assets/blue-background.png');
+  background: #0d0d1e;
+  background-image: url("assets/blue-background.png");
   background-size: cover, contain;
   background-position: center, right bottom;
   background-repeat: no-repeat, no-repeat;
-  font-family: 'Georgia', serif;
+  font-family: "Georgia", serif;
   font-style: normal;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .navbar {
@@ -26,11 +26,12 @@ code {
   font-size: 20px;
   line-height: 30px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.left, .right {
-  flex: .2;
+.left,
+.right {
+  flex: 0.2;
 }
 
 .center {
@@ -38,14 +39,15 @@ code {
   text-align: center;
 }
 
-.backButton, .logoutButton {
+.backButton,
+.logoutButton {
   background-color: #344955; /* Blue button color */
   color: white;
   border: none;
   padding: 10px 15px;
   font-size: 25px;
   cursor: pointer;
-  font-family: 'Georgia', serif;
+  font-family: "Georgia", serif;
   text-decoration: underline;
 }
 
@@ -60,7 +62,7 @@ code {
 }
 
 .greenBox {
-  background-color: #50727B; /* Green box */
+  background-color: #50727b; /* Green box */
   color: white;
   text-align: center;
   padding: 20px;
@@ -101,11 +103,11 @@ code {
 }
 
 .lighter {
-  background-color: #50727B;
+  background-color: #50727b;
 }
 
 .lighter:hover {
-  background-color: #3C5B66;
+  background-color: #3c5b66;
 }
 
 .darker {
@@ -113,7 +115,7 @@ code {
 }
 
 .darker:hover {
-  background-color: #103B4E;
+  background-color: #103b4e;
 }
 
 /* Styling for the centered box */
@@ -140,7 +142,7 @@ code {
   padding: 10px;
   margin-top: 10px;
   box-sizing: border-box;
-  background: #D9D9D9;
+  background: #d9d9d9;
   font-family: Georgia, serif;
   font-size: 14pt;
   height: 250px;
@@ -151,7 +153,7 @@ code {
   padding: 10px;
   margin-top: 10px;
   box-sizing: border-box;
-  background: #D9D9D9;
+  background: #d9d9d9;
   font-family: Georgia, serif;
   font-size: 14pt;
   border-radius: 10px;
@@ -163,11 +165,11 @@ code {
   display: inline-block;
   padding: 15px 40px;
   background-color: #344955; /* Dark blue background color */
-  color: #FFFFF2;
+  color: #fffff2;
   text-align: center;
   border-radius: 10px; /* Rounded corners */
   cursor: pointer;
-  font-family: 'Georgia', serif;
+  font-family: "Georgia", serif;
   font-size: 15pt;
 }
 
@@ -303,29 +305,29 @@ input[type="checkbox"]:focus {
   display: inline-block;
   padding: 20px 30px;
   margin-right: 50px;
-  color: #FFFFF2; /* White text color */
+  color: #fffff2; /* White text color */
   text-decoration: none;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  background: #50727B;
+  background: #50727b;
   font-size: 25pt;
-  font-family: 'Georgia', serif;
-  opacity: .8;
+  font-family: "Georgia", serif;
+  opacity: 0.8;
 }
 
 .blue-box {
-  background-color: #50727B; /* Green box */
+  background-color: #50727b; /* Green box */
   text-align: center;
   padding: 5px;
   margin-bottom: 50px;
   margin-top: 30px;
   width: 60%;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .title-text {
-  color: #FFFFF2;
+  color: #fffff2;
   font-size: 50pt;
   font-weight: lighter;
   opacity: 1;
@@ -353,3 +355,6 @@ input[type="checkbox"]:focus {
   min-height: 100vh;
 }
 
+.white-text {
+  color: white;
+}
