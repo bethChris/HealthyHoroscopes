@@ -20,3 +20,4 @@ TODO
 
 * Background zodiac: https://static.vecteezy.com/system/resources/thumbnails/029/145/582/small_2x/astrology-wheel-with-zodiac-signs-vintage-frame-divine-magic-hand-drawn-antique-illustration-png.png
 * Background stars: https://www.pngall.com/wp-content/uploads/15/Gold-Sparkle-PNG-Picture.png
+* Favicon: <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Freepik - Flaticon</a>
