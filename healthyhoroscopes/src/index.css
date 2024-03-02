@@ -181,6 +181,7 @@ code {
   align-items: center;
   justify-content: center;
   margin-top: 50px;
+  overflow-wrap: break-word;
 }
 
 .more-margin {
