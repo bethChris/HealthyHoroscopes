@@ -19,7 +19,7 @@ const Register = () => {
         throw error;
       }
       // Redirect to home page after successful registration
-      navigate("/more-info");
+      navigate("/home");
     } catch (error) {
       console.error("Registration error:", error.message);
     }
