@@ -48,15 +48,19 @@ const TellMore = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
+      <div >
+      <label className="tellmore-label">
         Name:
-        <input type="text" value={name} onChange={handleNameChange} />
+        <input  className="login-input" type="text" value={name} onChange={handleNameChange} />
       </label>
-      <label>
+      <label className="tellmore-label">
         Birthday:
-        <input type="date" value={birthday} onChange={handleBirthdayChange} />
+        <input  className="login-input" type="date" value={birthday} onChange={handleBirthdayChange} />
       </label>
+      </div>
+      <div className="login">
       <button type="submit">Add User</button>
+      </div>
     </form>
   );
 };
