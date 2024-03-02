@@ -1,51 +1,72 @@
 import React, { useEffect, useState } from "react";
 import Button from "../elements/Button";
 import { useNavigate } from "react-router-dom";
+import supabase from "../../supabase";
+
+function getCurrentDateYYYYMMDD() {
+  let currentDate = new Date();
+  let year = currentDate.getFullYear();
+  let month = ("0" + (currentDate.getMonth() + 1)).slice(-2); // Adding 1 because months are zero-indexed
+  let day = ("0" + currentDate.getDate()).slice(-2);
+  let formattedDate = year + month + day;
+  return formattedDate;
+}
 const Affirmations = () => {
-    const [inputText, setInputText] = useState('');
-    const [buttonText, setButtonText] = useState('Submit');
-    const [message, setMessage] = useState('');
-  
-    const navigate = useNavigate();
-    var userId = localStorage.getItem("userId");
-    if (!userId) {
-      navigate("/login");
+  const [inputText, setInputText] = useState("");
+  const [buttonText, setButtonText] = useState("Submit");
+  const [message, setMessage] = useState("");
+
+  const navigate = useNavigate();
+  var userId = localStorage.getItem("userId");
+  if (!userId) {
+    navigate("/login");
+  }
+
+  async function handleClick() {
+    if (inputText === "") {
+      alert("You cannot submit a blank field!");
+      return;
     }
 
-    async function handleClick() {
+    setMessage("Loading...");
+    const result = await postData("http://localhost:2999/model/affirmation", {
+      affirmation: inputText,
+    });
 
-      if (inputText === '') {
-        alert('You cannot submit a blank field!');
-        return;
-      }
+    if (result.prediction === "positive") {
+      //accept
+      setMessage("Great Job!");
 
-      setMessage('Loading...');
-      const result = await postData('http://localhost:2999/model/affirmation', {affirmation: inputText})
-
-      if (result.prediction === "positive") {
-        //accept
-        setMessage('Great Job!');
-      } else {
-        //reject
-        setMessage('');
-        alert("Your affirmation should focus on the positive! Try again, a little more positive!");
-      }
-      setButtonText('Submit Again');
-    }
-
-    async function postData(url, data, contentType="application/json") {
-      const resp = await fetch(url, {
-        method: "POST",
-        cache: "no-cache",
-        credentials: "same-origin",
-        connection: "keep-alive",
-        headers: {
-          Accept: 'application.json',
-          "Content-Type": contentType,
+      const { data, error } = await supabase.from("affirmations").insert([
+        {
+          user_id: userId,
+          content: inputText,
+          date: getCurrentDateYYYYMMDD(),
         },
-        body: JSON.stringify(data)
-      });
-      return await resp.json();
+      ]);
+    } else {
+      //reject
+      setMessage("");
+      alert(
+        "Your affirmation should focus on the positive! Try again, a little more positive!"
+      );
+    }
+    setButtonText("Submit Again");
+  }
+
+  async function postData(url, data, contentType = "application/json") {
+    const resp = await fetch(url, {
+      method: "POST",
+      cache: "no-cache",
+      credentials: "same-origin",
+      connection: "keep-alive",
+      headers: {
+        Accept: "application.json",
+        "Content-Type": contentType,
+      },
+      body: JSON.stringify(data),
+    });
+    return await resp.json();
   }
 
   return (
