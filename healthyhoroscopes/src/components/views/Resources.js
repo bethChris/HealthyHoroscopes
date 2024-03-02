@@ -1,7 +1,5 @@
-import React, {useEffect, useState} from 'react';
 
 const Resources = () => {
-  const [inputText, setInputText] = useState('');
 
   return (<div className="outer-box">
 

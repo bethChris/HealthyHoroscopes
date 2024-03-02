@@ -26,10 +26,11 @@ const App = () => {
   return (
     <Router>
       <Routes>
+
         <Route
           exact path="/"
           element={
-            <LightBackground backOption={false} name="" content={<Home />} />
+            <LightBackground name="" content={<Home />} />
           }
         />
 
