@@ -19,7 +19,7 @@ const Login = () => {
       }
       localStorage.setItem("userId", data.user.id);
       // Redirect to home page after successful login
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       console.error("Login error:", error.message);
     }
