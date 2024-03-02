@@ -32,7 +32,6 @@ interface MusicRecommend {
   Composer: number  
 }
 
-
 app.use(cors({
   origin: 'http://localhost:3000'
 }));
@@ -103,12 +102,75 @@ async function horoscope(bday:string) {
 
 }
 
+//activity generation
+app.get("/activity/:activity1&:activity2&:activity3", async (req:Request, res: Response)=> {
+    const activity1 = req.params.activity1;
+    const activity2 = req.params.activity2;
+    const activity3 = req.params.activity3;
+
+    const activites = await activity(activity1, activity2, activity3)
+    const stringList: string[] = activites.split(',').map((str: string) => str.trim()).filter((str: string) => str !== '');
+    res.json({stringList})
+})
+
+async function activity(activity1:string, activity2:string, activity3:string) {
+
+  const generationConfig = {
+      stopSequences: [""],
+      //maxOutputTokens: 300,
+      temperature: .9, //the randomness of the output
+      //topP: 0.1, //the maximum cumulative probability of tokens to consider when sampling
+      //topK: 16, //the maximum number of tokens to consider when sampling
+  };
+
+  const safetySettings = [
+      {
+          category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+          threshold: HarmBlockThreshold.BLOCK_NONE,
+      },
+      {
+          category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+          threshold: HarmBlockThreshold.BLOCK_NONE,
+      },
+      {
+          category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+          threshold: HarmBlockThreshold.BLOCK_NONE,
+      },
+      {
+          category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+          threshold: HarmBlockThreshold.BLOCK_NONE,
+      },
+  ];
+
+  const model = genAI.getGenerativeModel({
+      model: "gemini-pro",
+      generationConfig,
+      safetySettings
+  });
+
+  const prompt = `I enjoy ${activity1}, ${activity2}, and ${activity3} give me 3 other similar activities I could potentially enjoy that also have mental health benefits. Please make this response 1-2 words per activitity, with each activity seperated by a , and no additional formatting`
+
+  try {
+      const result = await model.generateContent(prompt);
+      const response = await result.response;
+
+      console.log(JSON.stringify(response));
+      console.log(response.candidates[0].safetyRatings);
+      console.log(response.text());
+      return response.text();
+
+  } catch (err) {
+      console.log(err);
+      return "";
+  }
+
+}
+
 //affirmation
 app.post("/model/affirmation", async (req:Request, res: Response)=> {
   const affirmation = req.body.affirmation;
   PythonShell.runString(`import joblib
 model = joblib.load('${modelPath}')
-affirmation = {}
 prediction = model.predict(["${affirmation}"])
 print(prediction[0])`
   ).then((results) => {
