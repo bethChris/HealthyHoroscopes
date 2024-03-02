@@ -394,3 +394,13 @@ input[type="checkbox"]:focus {
   margin:auto;
   margin-top:20px;
 }
+
+.p-music {
+  margin-bottom: 50px;
+  font-size: 20pt;
+  /* color: white; */
+  background-color: rgb(238, 252, 252);
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px
+}
