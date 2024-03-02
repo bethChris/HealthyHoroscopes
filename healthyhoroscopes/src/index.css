@@ -1,11 +1,10 @@
 body {
-  margin: 30px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #FFFFF2;
+  font-family: 'Georgia', serif;
+  font-style: normal;
 }
 
 code {
@@ -13,6 +12,104 @@ code {
     monospace;
 }
 
+.navbar {
+  background-color: #344955; /* Dark blue background color */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Adjust padding as needed */
 
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.left, .right {
+  flex: .2;
+}
+
+.center {
+  flex: 2;
+  text-align: center;
+}
+
+.backButton, .logoutButton {
+  background-color: #344955; /* Blue button color */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 25px;
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+  text-decoration: underline;
+}
+
+.content-body {
+  margin: 30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.greenBox {
+  background-color: #50727B; /* Green box */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-top: 30px;
+  width: 90%;
+}
+
+.greenBox p {
+  font-size: 15pt;
+}
+
+.redBox {
+  background-color: #344955; /* Red box */
+  color: white;
+  text-align: center;
+  padding: 0;
+  width: 40%;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+.orangeBoxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+}
+
+.orangeBox {
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px; /* Rounded corners */
+  width: calc(33.33% - 50px); /* Three boxes in a row with margin in between */
+  font-size: 20pt;
+}
+
+.lighter {
+  background-color: #50727B;
+}
+
+.lighter:hover {
+  background-color: #3C5B66;
+}
+
+.darker {
+  background-color: #164863;
+}
+
+.darker:hover {
+  background-color: #103B4E;
+}
 
 

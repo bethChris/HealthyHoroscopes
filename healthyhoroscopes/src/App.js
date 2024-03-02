@@ -26,7 +26,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route exact path="/" element={
-          <LightBackground content={<Home/>}/>
+          <LightBackground backOption={false} name="" content={<Home/>}/>
         } />
 
         <Route exact path="/login" element={<Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />} />
