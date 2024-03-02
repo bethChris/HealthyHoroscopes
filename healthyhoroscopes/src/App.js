@@ -6,6 +6,7 @@
 import { createClient } from "@supabase/supabase-js";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Landing from "./components/views/Landing";
 import Home from "./components/views/Home";
 import Affirmations from "./components/views/Affirmations";
 import AffirmationHistory from "./components/views/AffirmationHistory";
@@ -31,9 +32,16 @@ const App = () => {
   return (
     <Router>
       <Routes>
+
         <Route
           exact
           path="/"
+          element={<Landing />}
+        />
+
+        <Route
+          exact
+          path="/home"
           element={<LightBackground name="" content={<Home />} />}
         />
 

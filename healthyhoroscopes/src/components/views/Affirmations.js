@@ -6,16 +6,17 @@ const Affirmations = () => {
     const [buttonText, setButtonText] = useState('Submit');
     const [message, setMessage] = useState('');
 
-    function handleClick() {
+    async function handleClick() {
 
       if (inputText === '') {
         alert('You cannot submit a blank field!');
         return;
       }
 
-      setButtonText('Submit Again');
-      //TODO send affirmation to server
-      if (Date.now() % 2 === 0) {
+      setMessage('Loading...');
+      const result = await postData('http://localhost:2999/model/affirmation', {affirmation: inputText})
+
+      if (result.prediction === "positive") {
         //accept
         setMessage('Great Job!');
       } else {
@@ -23,7 +24,23 @@ const Affirmations = () => {
         setMessage('');
         alert("Your affirmation should focus on the positive! Try again, a little more positive!");
       }
+      setButtonText('Submit Again');
     }
+
+    async function postData(url, data, contentType="application/json") {
+      const resp = await fetch(url, {
+        method: "POST",
+        cache: "no-cache",
+        credentials: "same-origin",
+        connection: "keep-alive",
+        headers: {
+          Accept: 'application.json',
+          "Content-Type": contentType,
+        },
+        body: JSON.stringify(data)
+      });
+      return await resp.json();
+  }
 
     return (<div className="outer-box">
 

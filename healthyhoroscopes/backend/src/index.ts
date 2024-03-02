@@ -6,7 +6,7 @@ const { HarmBlockThreshold, HarmCategory } = require("@google/generative-ai");
 import {PythonShell} from 'python-shell';
 import { config } from 'dotenv'
 
-config({ path: '../.env' })
+config({ path: '../.env' });
 
 config();
 
@@ -23,19 +23,18 @@ app.use(cors({
 }));
 
 //horoscope
-app.get("/horoscope/:bday/:color", async (req: Request, res: Response) => {
+app.get("/horoscope/:bday", async (req: Request, res: Response) => {
   //get user data
   //feed to gemini
   //send back response
   const bday = req.params.bday as string;
-  const color = req.params.color as string;
 
-  const text = await horoscope(bday, color);
+  const text = await horoscope(bday);
 
   res.json({'text': text});
 });
 
-async function horoscope(bday:string, color:string) {
+async function horoscope(bday:string) {
 
   const generationConfig = {
       stopSequences: [""],
@@ -70,7 +69,7 @@ async function horoscope(bday:string, color:string) {
       safetySettings
   });
 
-  const prompt = `Write a 3 sentence positive horoscope for a person born ${bday} and whose color of the day is ${color}. Make sure to address the horoscope to their zodiac sign.`
+  const prompt = `Write a 5 sentence positive, uplifting horoscope for a person born ${bday}. Make sure to address the horoscope to their zodiac sign.`
 
   try {
       const result = await model.generateContent(prompt);
