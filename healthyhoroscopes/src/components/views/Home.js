@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import supabase from "../../supabase";
 
 const Home = () => {
   const [horoscope, setHoroscope] = useState("Loading...");
@@ -11,10 +12,21 @@ const Home = () => {
   useEffect(() => {
     
     const userId = localStorage.getItem("userId");
-    //TODO: get the birthday based off the userId
-    const userBirthday = '03-02-2003';
 
     async function fetchData() {
+
+      const { data: user } = await supabase.auth.getUser();
+      console.log("user:", user);
+
+      let { data: users, error } = await supabase
+        .from("users")
+        .select("*")
+        .eq("id", userId);
+
+      const rawBirthday = users[0].bDay;
+      const userBirthday = rawBirthday.substring(0, 2) + '-' + rawBirthday.substring(2);
+      console.log(userBirthday);
+
       const resp = await fetch(`http://localhost:2999/horoscope/bday:${userBirthday}`);
       const result = await resp.json();
       setHoroscope(result.text);

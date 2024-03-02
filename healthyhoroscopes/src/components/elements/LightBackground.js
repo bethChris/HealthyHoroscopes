@@ -33,7 +33,7 @@ const LightBackground = ({ content, logOut, backOption, name }) => {
   async function logItOut() {
     const { error } = await supabase.auth.signOut();
     localStorage.removeItem("userId");
-    window.location.href = "/login";
+    window.location.href = "/";
   }
 
   function goBack() {
