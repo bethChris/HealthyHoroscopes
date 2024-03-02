@@ -213,7 +213,8 @@ h3 {
 }
 
 a {
-  color: black;
+  color: lightgray;
+  font-size: 15pt;
 }
 
 .bigger {
