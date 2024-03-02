@@ -2,11 +2,25 @@
 
 HackUSU 2024
 
-"this is the start of the readme <3" -Bethany
-
 ## Usage
 
-TODO
+In the root directory:
+`cd healthyhoroscopes`
+
+Run the frontend:
+`npm install`
+`npm start`
+
+Run the backend:
+`cd backend`
+`npm install`
+
+Install the following python libraries with `pip` or `pip3 install` _package-name_:
+* `pandas`
+* `joblib`
+* `sckit-learn=1.3.1`
+
+`npm run dev`
 
 ## Dev
 
@@ -37,3 +51,5 @@ TODO
 
 * Mental Disorder symptoms dataset: https://www.kaggle.com/datasets/rohitzaman/mental-health-symptoms-datasets
     * Download csv and place csv in models folder
+
+"this is the start of the readme <3" -Bethany

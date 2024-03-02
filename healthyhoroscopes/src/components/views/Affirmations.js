@@ -12,6 +12,15 @@ const Affirmations = () => {
       navigate("/login");
     }
 
+    function getTryAgainMessage() {
+      const messages = [
+        "Your affirmation should focus on the positive! Try again, a little more positive!",
+        "That sounds like a negative thought! We don't do those here!! Try again :)",
+        "Would Taylor Swift want you to say that about yourself? I don't think so. Try again!"
+      ]
+      return messages[Math.floor(Math.random() * messages.length)];
+    }
+
     async function handleClick() {
 
       if (inputText === '') {
@@ -28,7 +37,7 @@ const Affirmations = () => {
       } else {
         //reject
         setMessage('');
-        alert("Your affirmation should focus on the positive! Try again, a little more positive!");
+        alert(getTryAgainMessage());
       }
       setButtonText('Submit Again');
     }
