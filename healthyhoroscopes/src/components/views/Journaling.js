@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 import Button from "../elements/Button";
 import { useNavigate } from "react-router-dom";
+import supabase from "../../supabase";
+
+function getCurrentDateYYYYMMDD() {
+  let currentDate = new Date();
+  let year = currentDate.getFullYear();
+  let month = ("0" + (currentDate.getMonth() + 1)).slice(-2); // Adding 1 because months are zero-indexed
+  let day = ("0" + currentDate.getDate()).slice(-2);
+  let formattedDate = year + month + day;
+  return formattedDate;
+}
+
 const Journaling = () => {
   const [inputText, setInputText] = useState("");
   const [buttonText, setButtonText] = useState("Submit");
@@ -10,14 +21,21 @@ const Journaling = () => {
   if (!userId) {
     navigate("/login");
   }
-  function handleClick() {
+  async function handleClick() {
     if (inputText === "") {
       alert("You cannot submit a blank entry!");
       return;
+    } else {
+      const { data, error } = await supabase.from("journal").insert([
+        {
+          user_id: userId,
+          content: inputText,
+          date: getCurrentDateYYYYMMDD(),
+        },
+      ]);
     }
-
     setButtonText("Submit Again");
-    //TODO send entry to database
+
     setMessage("Great Job!");
   }
 
