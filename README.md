@@ -31,7 +31,7 @@ Install the following python libraries with `pip` or `pip3 install` _package-nam
 
 - `pandas`
 - `joblib`
-- `sckit-learn=1.3.1`
+- `scikit-learn==1.3.1`
 
 ```
 npm run dev
