@@ -46,20 +46,67 @@ const Music = () => {
     setDetails(newOne);
   }
 
-  function handleClick() {
+  function getBinary(val) {
+    if (val) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  async function postData(url, data, contentType = "application/json") {
+    const resp = await fetch(url, {
+      method: "POST",
+      cache: "no-cache",
+      credentials: "same-origin",
+      connection: "keep-alive",
+      headers: {
+        Accept: "application.json",
+        "Content-Type": contentType,
+      },
+      body: JSON.stringify(data),
+    });
+    return await resp.json();
+  }
+
+  async function handleClick() {
     if (details.age === "" || details.hoursDay === "" || details.genre === "") {
       alert("Age, hours per day, and genre fields are required!");
       return;
     }
 
-    console.log(details);
+    const dataForSending = {
+      "Age": details.age,
+      "Anxiety": details.anxiety,
+      "Composer": getBinary(details.compose),
+      "Depression": details.depression,
+      "Exploratory": getBinary(details.explore),
+      "ForeignLanguages": getBinary(details.foreign),
+      "FavGenre": details.genre,
+      "HoursPerDay": details.hoursDay,
+      "Insomnia": details.insomnia,
+      "Instrumentalist": getBinary(details.instrument),
+      "OCD": details.ocd,
+      "WhileWorking": getBinary(details.working)
+    }
 
-    setButtonText("Submit Again");
-
-    //TODO send data to server and get recs
     setRecs(
-      "You should listen to this, this, and this because it will make you less depressy."
+      `Loading...`);
+
+    const result = await postData('http://localhost:2999/model/music', dataForSending);
+    console.log(result);
+
+    let theList = "";
+
+    for (let i = 0; i < result.genres.length - 1; i++) {
+      theList += (result.genres[i] + ", ")
+    }
+    theList += ("and " + result.genres[result.genres.length - 1]);
+
+    setRecs(
+      `Recommended music genres for you: ${theList}.`
     );
+    setButtonText("Submit Again");
   }
 
   return (

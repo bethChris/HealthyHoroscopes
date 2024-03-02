@@ -50,7 +50,7 @@ const JournalHistory = () => {
     const newList = history.map(function (entry) {
       return (
         <li key={entry.id}>
-          <p>{new Date(entry.date).toLocaleString()}</p>
+          <p>{new Date(entry.date).toLocaleDateString()}</p>
           <p>{entry.text}</p>
           <br />
         </li>

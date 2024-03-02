@@ -187,18 +187,18 @@ print(prediction[0])`
 //music
 app.post("/model/music", async (req:Request, res:Response) => {
   const mr = req.body as MusicRecommend
+  console.log(req.body);
   let options: Options = {
     mode: 'text',
     scriptPath: '../models/',
     args: [`Age:${mr.Age},HoursPerDay:${mr.HoursPerDay},WhileWorking:${mr.WhileWorking},Instrumentalist:${mr.Instrumentalist},Composer:${mr.Composer},Exploratory:${mr.Exploratory},ForeignLanguages:${mr.ForeignLanguages},Anxiety:${mr.Anxiety},Depression:${mr.Depression},Insomnia:${mr.Insomnia},OCD:${mr.OCD},FavGenre:${mr.FavGenre}`]
   };
-  
+
   PythonShell.run('music_script.py', options).then(genres=>{    
     console.log(genres)
     res.json({genres})
   });
 
-  
 });
 
 app.listen(port, () => {

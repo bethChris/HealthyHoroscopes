@@ -18,7 +18,8 @@ const Register = () => {
       if (error) {
         throw error;
       }
-      // Redirect to home page after successful registration
+
+      localStorage.setItem("userId", data.user.id);
       navigate("/more-info");
     } catch (error) {
       console.error("Registration error:", error.message);
