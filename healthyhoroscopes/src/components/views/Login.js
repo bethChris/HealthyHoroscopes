@@ -13,11 +13,13 @@ const Login = () => {
         email: email,
         password: password,
       });
+      console.log("data:", data);
       if (error) {
         throw error;
       }
+      localStorage.setItem("userId", data.user.id);
       // Redirect to home page after successful login
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       console.error("Login error:", error.message);
     }

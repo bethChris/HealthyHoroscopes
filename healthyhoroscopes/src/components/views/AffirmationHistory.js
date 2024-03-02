@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from "react";
-
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 const AffirmationHistory = () => {
-
   const [history, setHistory] = useState([]);
   const [list, setList] = useState(<p>Loading...</p>);
-
+  const navigate = useNavigate();
+  var userId = localStorage.getItem("userId");
+  if (!userId) {
+    navigate("/login");
+  }
   useEffect(() => {
-    const userId = '1234';
-
     async function fetchData() {
       //TODO const resp = await fetch(`http://localhost:2999/horoscope/bday:${userBirthday}/color:${userColor}`);
       //const result = await resp.json();
@@ -22,8 +23,8 @@ const AffirmationHistory = () => {
         },
         {
           text: "here is affirmation 3",
-          id: 3
-        }
+          id: 3,
+        },
       ];
       setHistory(result);
     }
@@ -37,36 +38,28 @@ const AffirmationHistory = () => {
   }, []);
 
   useEffect(() => {
-
     console.log(history);
 
     if (!history || history.length === 0) {
       setList(<p>No saved entries available.</p>);
     }
 
-    const newList = history.map(function(entry) {
-        return (
-          <li key={entry.id}>
-            {entry.text}
-          </li>
-        )
-      });
+    const newList = history.map(function (entry) {
+      return <li key={entry.id}>{entry.text}</li>;
+    });
     setList(newList);
   }, [history]);
 
+  return (
+    <div className="outer-box">
+      <div className="centered-box resources">
+        <ul>{list}</ul>
+        <p className="more-margin"></p>
 
-  return (<div className="outer-box">
-
-    <div className="centered-box resources">
-      <ul>
-        {list}
-      </ul>
-      <p className="more-margin"></p>
-
-      <a href="/activities/affirmations">Back</a>
+        <a href="/activities/affirmations">Back</a>
+      </div>
     </div>
-
-  </div>);
+  );
 };
 
 export default AffirmationHistory;
