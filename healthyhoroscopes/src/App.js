@@ -53,7 +53,7 @@ const App = () => {
             <LightBackground
               backOption={false}
               logout={false}
-              name="Affirmations"
+              name="Log In"
               content={<Login />}
             />
           }
@@ -64,7 +64,7 @@ const App = () => {
             <LightBackground
               backOption={false}
               logout={false}
-              name="Affirmations"
+              name="Register"
               content={<Register />}
             />
           }
