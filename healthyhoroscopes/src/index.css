@@ -2,8 +2,8 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #FFFFF2;
-  background-image: linear-gradient(to right, rgba(255, 255, 242, .5), rgba(255, 255, 242, .5)), url('assets/full-background.png');
+  background: #0D0D1E;
+  background-image: url('assets/blue-background.png');
   background-size: cover, contain;
   background-position: center, right bottom;
   background-repeat: no-repeat, no-repeat;
@@ -210,7 +210,7 @@ h3 {
 }
 
 a {
-  color: #0056b3;
+  color: black;
 }
 
 .bigger {
@@ -296,5 +296,59 @@ input[type="checkbox"]:focus {
 .dropdown-select option {
   background-color: #fff;
   color: #333;
+}
+
+.button {
+  display: inline-block;
+  padding: 20px 30px;
+  margin-right: 50px;
+  color: #FFFFF2; /* White text color */
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #50727B;
+  font-size: 25pt;
+  font-family: 'Georgia', serif;
+  opacity: .8;
+}
+
+.blue-box {
+  background-color: #50727B; /* Green box */
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 50px;
+  margin-top: 30px;
+  width: 60%;
+  opacity: .8;
+}
+
+.title-text {
+  color: #FFFFF2;
+  font-size: 50pt;
+  font-weight: lighter;
+  opacity: 1;
+}
+
+.blue-box p {
+  font-size: 15pt;
+}
+
+.button-container {
+  color: white;
+  text-align: center;
+  padding: 0;
+  width: 40%;
+  font-size: 20px;
+  margin-bottom: 50px;
+  margin-top: 70px;
+}
+
+.landing-box {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 

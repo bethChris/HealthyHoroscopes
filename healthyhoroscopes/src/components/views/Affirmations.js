@@ -2,32 +2,50 @@ import React, { useEffect, useState } from "react";
 import Button from "../elements/Button";
 import { useNavigate } from "react-router-dom";
 const Affirmations = () => {
-  const [inputText, setInputText] = useState("");
-  const [buttonText, setButtonText] = useState("Submit");
-  const [message, setMessage] = useState("");
-  const navigate = useNavigate();
-  var userId = localStorage.getItem("userId");
-  if (!userId) {
-    navigate("/login");
-  }
-  function handleClick() {
-    if (inputText === "") {
-      alert("You cannot submit a blank field!");
-      return;
+    const [inputText, setInputText] = useState('');
+    const [buttonText, setButtonText] = useState('Submit');
+    const [message, setMessage] = useState('');
+  
+    const navigate = useNavigate();
+    var userId = localStorage.getItem("userId");
+    if (!userId) {
+      navigate("/login");
     }
 
-    setButtonText("Submit Again");
-    //TODO send affirmation to server
-    if (Date.now() % 2 === 0) {
-      //accept
-      setMessage("Great Job!");
-    } else {
-      //reject
-      setMessage("");
-      alert(
-        "Your affirmation should focus on the positive! Try again, a little more positive!"
-      );
+    async function handleClick() {
+
+      if (inputText === '') {
+        alert('You cannot submit a blank field!');
+        return;
+      }
+
+      setMessage('Loading...');
+      const result = await postData('http://localhost:2999/model/affirmation', {affirmation: inputText})
+
+      if (result.prediction === "positive") {
+        //accept
+        setMessage('Great Job!');
+      } else {
+        //reject
+        setMessage('');
+        alert("Your affirmation should focus on the positive! Try again, a little more positive!");
+      }
+      setButtonText('Submit Again');
     }
+
+    async function postData(url, data, contentType="application/json") {
+      const resp = await fetch(url, {
+        method: "POST",
+        cache: "no-cache",
+        credentials: "same-origin",
+        connection: "keep-alive",
+        headers: {
+          Accept: 'application.json',
+          "Content-Type": contentType,
+        },
+        body: JSON.stringify(data)
+      });
+      return await resp.json();
   }
 
   return (

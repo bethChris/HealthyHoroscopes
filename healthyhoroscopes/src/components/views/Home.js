@@ -9,13 +9,13 @@ const Home = () => {
     navigate("/login");
   }
   useEffect(() => {
-    const userBirthday = "03-02-2003";
-    const userColor = "yellow";
+    
+    const userId = localStorage.getItem("userId");
+    //TODO: get the birthday based off the userId
+    const userBirthday = '03-02-2003';
 
     async function fetchData() {
-      const resp = await fetch(
-        `http://localhost:2999/horoscope/bday:${userBirthday}/color:${userColor}`
-      );
+      const resp = await fetch(`http://localhost:2999/horoscope/bday:${userBirthday}`);
       const result = await resp.json();
       setHoroscope(result.text);
     }
