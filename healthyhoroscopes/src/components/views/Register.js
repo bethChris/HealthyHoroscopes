@@ -18,6 +18,7 @@ const Register = () => {
       if (error) {
         throw error;
       }
+
       localStorage.setItem("userId", data.user.id);
       navigate("/more-info");
     } catch (error) {
