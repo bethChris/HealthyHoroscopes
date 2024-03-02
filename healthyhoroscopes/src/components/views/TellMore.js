@@ -1,7 +1,12 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import supabase from "../../supabase";
 const TellMore = () => {
+  const navigate = useNavigate();
+  var userId = localStorage.getItem("userId");
+  if (!userId) {
+    navigate("/login");
+  }
   const [name, setName] = useState("");
   const [birthday, setBirthday] = useState("");
 
