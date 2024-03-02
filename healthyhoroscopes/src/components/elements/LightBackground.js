@@ -1,17 +1,23 @@
 import { useState, useEffect } from "react";
+import {useNavigate} from "react-router-dom";
 
 const LightBackground = ({ content, backOption, name }) => {
 
   const [backButton, setBackButton] = useState(<></>);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (backOption) {
-      setBackButton(<button className="logoutButton">Back</button>);
+      setBackButton(<button onClick={goBack} className="logoutButton">Back</button>);
     }
   }, [backOption]);
 
   function logOut() {
     console.log("Logging out");
+  }
+
+  function goBack() {
+    navigate('/');
   }
 
   return (

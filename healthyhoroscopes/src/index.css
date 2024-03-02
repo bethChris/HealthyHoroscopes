@@ -112,4 +112,88 @@ code {
   background-color: #103B4E;
 }
 
+/* Styling for the centered box */
+.centered-box {
+  width: 50%;
+  background-color: rgba(80, 114, 123, 0.8); /* #50727B with 80% opacity */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Styling for the text inside the box */
+.centered-box h2 {
+  color: white;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 20pt;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+/* Styling for the user input field */
+.centered-box textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  background: #D9D9D9;
+  font-family: Georgia, serif;
+  font-size: 12pt;
+  height: 250px;
+}
+
+/* Styling for the submission button */
+.customButton {
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: #344955; /* Dark blue background color */
+  color: #FFFFF2;
+  text-align: center;
+  border-radius: 10px; /* Rounded corners */
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+  font-size: 15pt;
+}
+
+/* Hover effect */
+.customButton:hover {
+  background-color: #2b3c49; /* Darker blue on hover */
+}
+
+.outer-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.more-margin {
+  margin-bottom: 50px;
+}
+
+ul {
+  list-style: none; /* Remove default list styling (bullets) */
+  padding: 0;
+  color: white;
+  font-size: 15pt;
+  margin-bottom: 40px;
+}
+
+/* Styling for list items */
+li {
+  margin-bottom: 20px; /* Adjust spacing between list items */
+}
+
+h3 {
+  color: white;
+}
+
+.resources p {
+  color: black;
+  font-size: 18pt;
+}
+
+a {
+  color: #0056b3;
+}
 
