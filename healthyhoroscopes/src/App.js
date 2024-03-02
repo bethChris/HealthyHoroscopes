@@ -29,7 +29,9 @@ const App = () => {
         <Route
           exact
           path="/"
-          element={<LightBackground content={<Home />} />}
+          element={
+            <LightBackground backOption={false} name="" content={<Home />} />
+          }
         />
 
         <Route
