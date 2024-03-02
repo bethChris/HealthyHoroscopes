@@ -9,7 +9,7 @@ const LightBackground = ({ content, logOut, backOption, name }) => {
   useEffect(() => {
     if (logOut) {
       setLogoutButton(
-        <button className="logoutButton" onClick={logOut}>
+        <button className="logoutButton" onClick={logItOut}>
           Log Out
         </button>
       );
@@ -17,6 +17,7 @@ const LightBackground = ({ content, logOut, backOption, name }) => {
       setLogoutButton(<></>);
     }
   }, [logOut]);
+
   useEffect(() => {
     if (backOption) {
       setBackButton(
@@ -29,7 +30,7 @@ const LightBackground = ({ content, logOut, backOption, name }) => {
     }
   }, [backOption]);
 
-  async function logOut() {
+  async function logItOut() {
     const { error } = await supabase.auth.signOut();
     localStorage.removeItem("userId");
     window.location.href = "/login";

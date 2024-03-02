@@ -22,6 +22,15 @@ const Affirmations = () => {
     navigate("/login");
   }
 
+    function getTryAgainMessage() {
+      const messages = [
+        "Your affirmation should focus on the positive! Try again, a little more positive!",
+        "That sounds like a negative thought! We don't do those here!! Try again :)",
+        "Would Taylor Swift want you to say that about yourself? I don't think so. Try again!"
+      ]
+      return messages[Math.floor(Math.random() * messages.length)];
+    }
+
   async function handleClick() {
     if (inputText === "") {
       alert("You cannot submit a blank field!");
@@ -33,25 +42,23 @@ const Affirmations = () => {
       affirmation: inputText,
     });
 
-    if (result.prediction === "positive") {
-      //accept
-      setMessage("Great Job!");
-
-      const { data, error } = await supabase.from("affirmations").insert([
+      if (result.prediction === "positive") {
+        //accept
+        setMessage('Great Job!');
+        
+        const { data, error } = await supabase.from("affirmations").insert([
         {
           user_id: userId,
           content: inputText,
           date: getCurrentDateYYYYMMDD(),
         },
       ]);
-    } else {
-      //reject
-      setMessage("");
-      alert(
-        "Your affirmation should focus on the positive! Try again, a little more positive!"
-      );
-    }
-    setButtonText("Submit Again");
+      } else {
+        //reject
+        setMessage('');
+        alert(getTryAgainMessage());
+      }
+      setButtonText('Submit Again');
   }
 
   async function postData(url, data, contentType = "application/json") {

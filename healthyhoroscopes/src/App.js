@@ -119,7 +119,7 @@ const App = () => {
             <LightBackground
               backOption={true}
               logOut={true}
-              name="Music"
+              name="Music Recommendations"
               content={<Music />}
             />
           }
@@ -130,7 +130,7 @@ const App = () => {
             <LightBackground
               backOption={true}
               logOut={true}
-              name="Activity"
+              name="Activity Recommendations"
               content={<Activity />}
             />
           }
