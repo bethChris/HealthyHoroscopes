@@ -1,16 +1,34 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-    const [count, setCount] = useState(0);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [horoscope, setHoroscope] = useState('Loading...');
+
+  useEffect(() => {
+    const userBirthday = '03-02-2003';
+    const userColor = 'yellow';
+
+    async function fetchData() {
+      const resp = await fetch(`http://localhost:2999/horoscope/bday:${userBirthday}/color:${userColor}`);
+      const result = await resp.json();
+      setHoroscope(result.text);
+    }
+
+    try {
+      fetchData();
+    } catch (e) {
+      console.log(e.message);
+      setHoroscope('Error, please try again later.');
+    }
+  }, []);
 
     return (<>
       <div className="container">
 
         <div className="greenBox">
           <h2>Your Daily Horoscope</h2>
-          <p>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem. Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem.</p>
+          <p>{horoscope}</p>
         </div>
 
         <div className="redBox">

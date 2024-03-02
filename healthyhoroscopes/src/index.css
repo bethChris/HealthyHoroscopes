@@ -3,13 +3,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #FFFFF2;
+  background-image: linear-gradient(to right, rgba(255, 255, 242, .4), rgba(255, 255, 242, .4)), url('assets/full-background.png');
+  background-size: cover, contain;
+  background-position: center, right bottom;
+  background-repeat: no-repeat, no-repeat;
   font-family: 'Georgia', serif;
   font-style: normal;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
 
 .navbar {

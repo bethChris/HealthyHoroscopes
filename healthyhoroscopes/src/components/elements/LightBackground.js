@@ -9,6 +9,8 @@ const LightBackground = ({ content, backOption, name }) => {
   useEffect(() => {
     if (backOption) {
       setBackButton(<button onClick={goBack} className="logoutButton">Back</button>);
+    } else {
+      setBackButton(<></>);
     }
   }, [backOption]);
 

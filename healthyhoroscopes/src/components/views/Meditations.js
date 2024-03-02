@@ -1,7 +1,5 @@
-import React, {useEffect, useState} from 'react';
 
 const Meditations = () => {
-  const [inputText, setInputText] = useState('');
 
   return (<div className="outer-box">
 
