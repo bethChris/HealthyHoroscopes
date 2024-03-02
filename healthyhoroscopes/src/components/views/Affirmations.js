@@ -3,7 +3,27 @@ import Button from "../elements/Button";
 
 const Affirmations = () => {
     const [inputText, setInputText] = useState('');
-    const [response, setResponse] = useState(null);
+    const [buttonText, setButtonText] = useState('Submit');
+    const [message, setMessage] = useState('');
+
+    function handleClick() {
+
+      if (inputText === '') {
+        alert('You cannot submit a blank field!');
+        return;
+      }
+
+      setButtonText('Submit Again');
+      //TODO send affirmation to server
+      if (Date.now() % 2 === 0) {
+        //accept
+        setMessage('Great Job!');
+      } else {
+        //reject
+        setMessage('');
+        alert("Your affirmation should focus on the positive! Try again, a little more positive!");
+      }
+    }
 
     return (<div className="outer-box">
 
@@ -15,9 +35,11 @@ const Affirmations = () => {
           value={inputText}
         ></textarea>
 
-        <Button text="Submit" handleClick={() => console.log("click")}/>
+        <Button text={buttonText} handleClick={handleClick}/>
 
-        <p className="more-margin"></p>
+        <p className="more-margin bigger">{message}</p>
+
+        <a href="/activities/affirmations/history">View Affirmation History</a>
       </div>
 
     </div>);

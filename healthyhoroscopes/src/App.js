@@ -8,7 +8,9 @@ import { createClient } from "@supabase/supabase-js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/views/Home";
 import Affirmations from "./components/views/Affirmations";
+import AffirmationHistory from "./components/views/AffirmationHistory";
 import Journaling from "./components/views/Journaling";
+import JournalHistory from "./components/views/JournalHistory";
 import Music from "./components/views/Music";
 import Activity from "./components/views/Activity";
 import Meditations from "./components/views/Meditations";
@@ -42,8 +44,14 @@ const App = () => {
         <Route path="/activities/affirmations" element={
           <LightBackground backOption={true} name="Affirmations" content={<Affirmations/>} />
         } />
+        <Route path="/activities/affirmations/history" element={
+          <LightBackground backOption={true} name="Affirmations" content={<AffirmationHistory/>} />
+        } />
         <Route path="/activities/journaling" element={
           <LightBackground backOption={true} name="Journaling" content={<Journaling/>} />
+        } />
+        <Route path="/activities/journaling/history" element={
+          <LightBackground backOption={true} name="Journaling" content={<JournalHistory/>} />
         } />
         <Route path="/activities/music" element={
           <LightBackground backOption={true} name="Music" content={<Music/>} />

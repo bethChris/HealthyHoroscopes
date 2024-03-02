@@ -3,6 +3,20 @@ import Button from "../elements/Button";
 
 const Journaling = () => {
   const [inputText, setInputText] = useState('');
+  const [buttonText, setButtonText] = useState('Submit');
+  const [message, setMessage] = useState('');
+
+  function handleClick() {
+
+    if (inputText === '') {
+      alert('You cannot submit a blank entry!');
+      return;
+    }
+
+    setButtonText('Submit Again');
+    //TODO send entry to database
+    setMessage('Great Job!');
+  }
 
   return (<div className="outer-box">
 
@@ -26,9 +40,11 @@ const Journaling = () => {
         value={inputText}
       ></textarea>
 
-      <Button text="Submit" handleClick={() => console.log("click")}/>
+      <Button text={buttonText} handleClick={handleClick}/>
 
-      <p className="more-margin"></p>
+      <p className="more-margin bigger">{message}</p>
+
+      <a href="/activities/journaling/history">View Journal History</a>
     </div>
 
   </div>);
