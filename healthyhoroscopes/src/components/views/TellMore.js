@@ -37,6 +37,7 @@ const TellMore = () => {
         throw error;
       }
       console.log("User added successfully:", data);
+      navigate("/home");
       // Optionally, you can reset the form fields after successful submission
       setName("");
       setBirthday("");
