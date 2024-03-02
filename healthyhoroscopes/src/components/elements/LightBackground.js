@@ -1,47 +1,47 @@
 import { useState, useEffect } from "react";
-import {useNavigate} from "react-router-dom";
+import supabase from "../../supabase";
+import { useNavigate } from "react-router-dom";
 
 const LightBackground = ({ content, backOption, name }) => {
-
   const [backButton, setBackButton] = useState(<></>);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (backOption) {
-      setBackButton(<button onClick={goBack} className="logoutButton">Back</button>);
+      setBackButton(
+        <button onClick={goBack} className="logoutButton">
+          Back
+        </button>
+      );
     } else {
       setBackButton(<></>);
     }
   }, [backOption]);
 
-  function logOut() {
-    console.log("Logging out");
+  async function logOut() {
+    const { error } = await supabase.auth.signOut();
+    window.location.href = "/login";
   }
 
   function goBack() {
-    navigate('/');
+    navigate("/");
   }
 
   return (
     <div>
-
       <div className="navbar">
-        <div className="left">
-          {backButton}
-        </div>
+        <div className="left">{backButton}</div>
         <div className="center">
           <h1>{name}</h1>
         </div>
         <div className="right">
-          <button className="logoutButton" onClick={logOut}>Log Out</button>
+          <button className="logoutButton" onClick={logOut}>
+            Log Out
+          </button>
         </div>
       </div>
 
-
-      <div className="content-body">
-        {content}
-      </div>
-
+      <div className="content-body">{content}</div>
     </div>
   );
 };
