@@ -15,10 +15,11 @@ Run the backend:
 `cd backend`
 `npm install`
 
-Install the following python libraries with `pip` or `pip3 install` _package-name_:
-* `pandas`
-* `joblib`
-* `sckit-learn=1.3.1`
+Install the following python libraries with `pip` or `pip3 install` _package-name_ Or run `pip3 install -r requirements.txt`:
+
+- `pandas`
+- `joblib`
+- `sckit-learn=1.3.1`
 
 `npm run dev`
 
@@ -28,28 +29,28 @@ Install the following python libraries with `pip` or `pip3 install` _package-nam
 
 ## Sources
 
-* Benefits of journaling: https://www.urmc.rochester.edu/encyclopedia/content.aspx?ContentID=4552&ContentTypeID=1#:~:text=Journaling%20helps%20control%20your%20symptoms,and%20identifying%20negative%20thoughts%20and
-* Mental health resources:
-  * https://www.usu.edu/aggiewellness/
-  * https://www.cdc.gov/mentalhealth/tools-resources/index.htm
-  * https://www.nimh.nih.gov/health/find-help
-* Benefits of meditation: https://www.mayoclinic.org/tests-procedures/meditation/in-depth/meditation/art-20045858#:~:text=Meditation%20can%20give%20you%20a,centered%20and%20keep%20inner%20peace.
-* Guided meditations:
-  * https://www.youtube.com/watch?v=uTN29kj7e-w
-  * https://www.youtube.com/watch?v=ZToicYcHIOU
-  * https://www.youtube.com/watch?v=ssss7V1_eyA
-  * https://www.youtube.com/watch?v=vj0JDwQLof4
-  * https://www.youtube.com/watch?v=DaHH--jJBtg
+- Benefits of journaling: https://www.urmc.rochester.edu/encyclopedia/content.aspx?ContentID=4552&ContentTypeID=1#:~:text=Journaling%20helps%20control%20your%20symptoms,and%20identifying%20negative%20thoughts%20and
+- Mental health resources:
+  - https://www.usu.edu/aggiewellness/
+  - https://www.cdc.gov/mentalhealth/tools-resources/index.htm
+  - https://www.nimh.nih.gov/health/find-help
+- Benefits of meditation: https://www.mayoclinic.org/tests-procedures/meditation/in-depth/meditation/art-20045858#:~:text=Meditation%20can%20give%20you%20a,centered%20and%20keep%20inner%20peace.
+- Guided meditations:
+  - https://www.youtube.com/watch?v=uTN29kj7e-w
+  - https://www.youtube.com/watch?v=ZToicYcHIOU
+  - https://www.youtube.com/watch?v=ssss7V1_eyA
+  - https://www.youtube.com/watch?v=vj0JDwQLof4
+  - https://www.youtube.com/watch?v=DaHH--jJBtg
 
 ## Image Attribution
 
-* Background zodiac: https://static.vecteezy.com/system/resources/thumbnails/029/145/582/small_2x/astrology-wheel-with-zodiac-signs-vintage-frame-divine-magic-hand-drawn-antique-illustration-png.png
-* Background stars: https://www.pngall.com/wp-content/uploads/15/Gold-Sparkle-PNG-Picture.png
-* Favicon: <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Freepik - Flaticon</a>
+- Background zodiac: https://static.vecteezy.com/system/resources/thumbnails/029/145/582/small_2x/astrology-wheel-with-zodiac-signs-vintage-frame-divine-magic-hand-drawn-antique-illustration-png.png
+- Background stars: https://www.pngall.com/wp-content/uploads/15/Gold-Sparkle-PNG-Picture.png
+- Favicon: <a href="https://www.flaticon.com/free-icons/star" title="star icons">Star icons created by Freepik - Flaticon</a>
 
 ## Dataset
 
-* Music and Mental Health dataset: https://www.kaggle.com/datasets/catherinerasgaitis/mxmh-survey-results
-    * Download csv and place csv in models folder
+- Music and Mental Health dataset: https://www.kaggle.com/datasets/catherinerasgaitis/mxmh-survey-results
+  - Download csv and place csv in models folder
 
 "this is the start of the readme <3" -Bethany
