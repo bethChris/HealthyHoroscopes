@@ -7,4 +7,5 @@ venv
 *.pyc
 *.zip
 *.bak
+.idea
 
