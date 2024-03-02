@@ -1,4 +1,5 @@
 import express, { Express, Request, Response } from "express";
+const cors = require('cors');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { HarmBlockThreshold, HarmCategory } = require("@google/generative-ai");
 import { config } from 'dotenv'
@@ -9,6 +10,10 @@ config();
 const app: Express = express();
 const port = process.env.PORT || 2999;
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+
+app.use(cors({
+  origin: 'http://localhost:3000'
+}));
 
 //horoscope
 app.get("/horoscope/:bday/:color", async (req: Request, res: Response) => {
@@ -58,7 +63,7 @@ async function horoscope(bday:string, color:string) {
       safetySettings
   });
 
-  const prompt = `Write a 3 sentence positive horoscope for a person born ${bday} and whose color of the day is ${color}`
+  const prompt = `Write a 3 sentence positive horoscope for a person born ${bday} and whose color of the day is ${color}. Make sure to address the horoscope to their zodiac sign.`
 
   try {
       const result = await model.generateContent(prompt);

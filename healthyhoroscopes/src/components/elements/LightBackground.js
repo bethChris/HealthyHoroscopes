@@ -1,17 +1,30 @@
 import { useState, useEffect } from "react";
 import supabase from "../../supabase";
+import { useNavigate } from "react-router-dom";
+
 const LightBackground = ({ content, backOption, name }) => {
   const [backButton, setBackButton] = useState(<></>);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (backOption) {
-      setBackButton(<button className="logoutButton">Back</button>);
+      setBackButton(
+        <button onClick={goBack} className="logoutButton">
+          Back
+        </button>
+      );
+    } else {
+      setBackButton(<></>);
     }
   }, [backOption]);
 
   async function logOut() {
     const { error } = await supabase.auth.signOut();
     window.location.href = "/login";
+  }
+
+  function goBack() {
+    navigate("/");
   }
 
   return (
