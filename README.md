@@ -15,6 +15,17 @@ TODO
 ## Sources
 
 * Benefits of journaling: https://www.urmc.rochester.edu/encyclopedia/content.aspx?ContentID=4552&ContentTypeID=1#:~:text=Journaling%20helps%20control%20your%20symptoms,and%20identifying%20negative%20thoughts%20and
+* Mental health resources:
+  * https://www.usu.edu/aggiewellness/
+  * https://www.cdc.gov/mentalhealth/tools-resources/index.htm
+  * https://www.nimh.nih.gov/health/find-help
+* Benefits of meditation: https://www.mayoclinic.org/tests-procedures/meditation/in-depth/meditation/art-20045858#:~:text=Meditation%20can%20give%20you%20a,centered%20and%20keep%20inner%20peace.
+* Guided meditations:
+  * https://www.youtube.com/watch?v=uTN29kj7e-w
+  * https://www.youtube.com/watch?v=ZToicYcHIOU
+  * https://www.youtube.com/watch?v=ssss7V1_eyA
+  * https://www.youtube.com/watch?v=vj0JDwQLof4
+  * https://www.youtube.com/watch?v=DaHH--jJBtg
 
 ## Image Attribution
 

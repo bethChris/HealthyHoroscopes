@@ -1,23 +1,37 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
+import Button from "../elements/Button";
 
 const Journaling = () => {
-    const [count, setCount] = useState(0);
+  const [inputText, setInputText] = useState('');
 
-    const increment = () => {
-        setCount(count + 1);
-    };
+  return (<div className="outer-box">
 
-    const decrement = () => {
-        setCount(count - 1);
-    };
+    <div className="centered-box">
+      <h2>Journaling can help control your symptoms and improve your mood by: <br/><br/>
+      </h2>
+      <ul>
+        <li>
+          Helping you prioritize problems, fears, and concerns.
+        </li>
+        <li>
+          Tracking any symptoms day-to-day so that you can recognize triggers and learn ways to better control them.
+        </li>
+        <li>
+          Providing an opportunity for positive self-talk and identifying negative thoughts.
+        </li>
+      </ul>
+      <textarea
+        placeholder="Enter text here"
+        onChange={e => setInputText(e.target.value)}
+        value={inputText}
+      ></textarea>
 
-    return (
-        <div>
-            <h1>Journaling: {count}</h1>
-            <button onClick={increment}>Increment</button>
-            <button onClick={decrement}>Decrement</button>
-        </div>
-    );
+      <Button text="Submit" handleClick={() => console.log("click")}/>
+
+      <p className="more-margin"></p>
+    </div>
+
+  </div>);
 };
 
 export default Journaling;
