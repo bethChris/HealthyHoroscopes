@@ -2,12 +2,12 @@ import express, { Express, Request, Response } from "express";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { HarmBlockThreshold, HarmCategory } = require("@google/generative-ai");
 import { config } from 'dotenv'
-config({ path: '../../.env' })
+config({ path: '../.env' })
 
 config();
 
 const app: Express = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 2999;
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 //horoscope
