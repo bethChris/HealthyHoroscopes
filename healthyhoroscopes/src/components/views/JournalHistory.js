@@ -50,8 +50,12 @@ const JournalHistory = () => {
     const newList = history.map(function (entry) {
       return (
         <li key={entry.id}>
-          <p>{new Date(entry.date).toLocaleDateString()}</p>
-          <p>{entry.text}</p>
+          <p>
+            <label>{new Date(entry.date).toLocaleDateString()}</label>
+          </p>
+          <p>
+            <label>{entry.text}</label>
+          </p>
           <br />
         </li>
       );
@@ -62,7 +66,7 @@ const JournalHistory = () => {
   return (
     <div className="outer-box">
       <div className="centered-box resources">
-        <ul>{list}</ul>
+        <ul className="white-text">{list}</ul>
         <p className="more-margin"></p>
 
         <a href="/activities/journaling">Back</a>

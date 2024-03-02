@@ -29,19 +29,23 @@ const Register = () => {
   return (
     <div>
       <h2>Register</h2>
-      <input
+      <div>
+      <input className="login-input"
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <input
+      <input className="login-input"
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      </div>
+      <div className="login">
       <button onClick={handleRegister}>Register</button>
+      </div>
     </div>
   );
 };

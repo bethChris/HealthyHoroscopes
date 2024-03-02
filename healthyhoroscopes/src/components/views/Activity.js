@@ -19,7 +19,7 @@ const Activity = () => {
       setRecDisplay(<></>);
     } else {
       const theRecs = recs.map(function (item) {
-        return <li key={item.id}>{item.text}</li>;
+        return <li key={item}>{item}</li>;
       });
 
       setRecDisplay(
@@ -34,29 +34,22 @@ const Activity = () => {
     }
   }, [recs]);
 
-  function handleClick() {
+  async function handleClick() {
     if (inputText === "" || inputText1 === "" || inputText2 === "") {
       alert("You cannot submit a blank field!");
       return;
     }
 
-    setButtonText("Submit Again");
+    setMessage('Loading...');
 
-    //TODO send interests to server and get recs
-    setRecs([
-      {
-        id: 1,
-        text: "Go for a walk",
-      },
-      {
-        id: 2,
-        text: "Go for a hike",
-      },
-      {
-        id: 3,
-        text: "Go find a bird",
-      },
-    ]);
+    const response = await fetch(`http://localhost:2999/activity/${inputText}:activity1&${inputText1}:activity2&${inputText2}:activity3`);
+    const result = await response.json();
+    console.log(result);
+    setRecs(result.stringList);
+
+    setMessage('');
+
+    setButtonText("Submit Again");
   }
 
   return (

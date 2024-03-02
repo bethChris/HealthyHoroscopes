@@ -49,8 +49,12 @@ const AffirmationHistory = () => {
     const newList = history.map(function (entry) {
       return (
         <li key={entry.id}>
-          <p>{new Date(entry.date).toLocaleDateString()}</p>
-          <p>{entry.text}</p>
+          <p className="white-text">
+            <label>{new Date(entry.date).toLocaleDateString()}</label>
+          </p>
+          <p className="white-text">
+            <label>{entry.text}</label>
+          </p>
           <br />
         </li>
       );
@@ -61,10 +65,11 @@ const AffirmationHistory = () => {
   return (
     <div className="outer-box">
       <div className="centered-box resources">
-        <ul>{list}</ul>
+        <ul className="white-text">{list}</ul>
         <p className="more-margin"></p>
-
-        <a href="/activities/affirmations">Back</a>
+        <a href="/activities/affirmations" className="white-text">
+          Back
+        </a>
       </div>
     </div>
   );
