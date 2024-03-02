@@ -2,7 +2,6 @@ venv
 *.csv
 /data
 __pycache__
-venv
 .DS_Store
 *.pyc
 *.zip
@@ -10,13 +9,11 @@ venv
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
 
 node_modules
 dist
