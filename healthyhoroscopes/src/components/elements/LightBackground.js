@@ -36,7 +36,7 @@ const LightBackground = ({ content, logOut, backOption, name }) => {
   }
 
   function goBack() {
-    navigate("/");
+    navigate("/home");
   }
 
   return (
