@@ -42,7 +42,7 @@ const App = () => {
         <Route
           exact
           path="/home"
-          element={<LightBackground name="" content={<Home />} />}
+          element={<LightBackground name="" logOut={true} content={<Home />} />}
         />
 
         {/* <Route path="/login" element={<Login supabase={supabase} />} /> */}
