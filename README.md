@@ -49,7 +49,7 @@ Install the following python libraries with `pip` or `pip3 install` _package-nam
 
 ## Dataset
 
-* Mental Disorder symptoms dataset: https://www.kaggle.com/datasets/rohitzaman/mental-health-symptoms-datasets
+* Music and Mental Health dataset: https://www.kaggle.com/datasets/catherinerasgaitis/mxmh-survey-results
     * Download csv and place csv in models folder
 
 "this is the start of the readme <3" -Bethany
