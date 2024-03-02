@@ -1,15 +1,22 @@
 import express, { Express, Request, Response } from "express";
+import bodyParser = require('body-parser');
 const cors = require('cors');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { HarmBlockThreshold, HarmCategory } = require("@google/generative-ai");
+import {PythonShell} from 'python-shell';
 import { config } from 'dotenv'
+
 config({ path: '../.env' })
 
 config();
 
 const app: Express = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 const port = process.env.PORT || 2999;
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+const modelPath = "../models/trained_sentiment_analysis_model.joblib";
+
 
 app.use(cors({
   origin: 'http://localhost:3000'
@@ -17,15 +24,15 @@ app.use(cors({
 
 //horoscope
 app.get("/horoscope/:bday/:color", async (req: Request, res: Response) => {
-    //get user data
-    //feed to gemini
-    //send back response
-    const bday = req.params.bday as string;
-    const color = req.params.color as string;
-  
-    const text = await horoscope(bday, color);
+  //get user data
+  //feed to gemini
+  //send back response
+  const bday = req.params.bday as string;
+  const color = req.params.color as string;
 
-    res.json({'text': text});
+  const text = await horoscope(bday, color);
+
+  res.json({'text': text});
 });
 
 async function horoscope(bday:string, color:string) {
@@ -82,6 +89,23 @@ async function horoscope(bday:string, color:string) {
 
 }
 
+app.post("/model/affirmation", async (req:Request, res: Response)=> {
+  const affirmation = req.body.affirmation;
+  PythonShell.runString(`import joblib
+model = joblib.load('${modelPath}')
+affirmation = {}
+prediction = model.predict(["${affirmation}"])
+print(prediction[0])`
+  ).then((results) => {
+    const prediction = results[0];
+    console.log(prediction)
+    res.json({ prediction });
+  }).catch((err) => {
+    console.error('Error making model prediction:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  });
+  
+});
 
 
 app.listen(port, () => {
