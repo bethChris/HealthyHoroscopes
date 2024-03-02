@@ -14,6 +14,8 @@ import Activity from "./components/views/Activity";
 import Meditations from "./components/views/Meditations";
 import Resources from "./components/views/Resources";
 
+import LightBackground from "./components/elements/LightBackground";
+
 const supabase = createClient(
   process.env.REACT_APP_SUPABASE_URL,
   process.env.REACT_APP_SUPABASE_ANON_KEY
@@ -23,7 +25,9 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Home/>} />
+        <Route exact path="/" element={
+          <LightBackground content={<Home/>}/>
+        } />
 
         <Route exact path="/login" element={<Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />} />
 
