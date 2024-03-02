@@ -6,7 +6,6 @@ const LightBackground = ({ content, logOut, backOption, name }) => {
   const [backButton, setBackButton] = useState(<></>);
   const [logoutButton, setLogoutButton] = useState(<></>);
   const navigate = useNavigate();
-
   useEffect(() => {
     if (logOut) {
       setLogoutButton(
@@ -32,6 +31,7 @@ const LightBackground = ({ content, logOut, backOption, name }) => {
 
   async function logOut() {
     const { error } = await supabase.auth.signOut();
+    localStorage.removeItem("userId");
     window.location.href = "/login";
   }
 
@@ -46,7 +46,7 @@ const LightBackground = ({ content, logOut, backOption, name }) => {
         <div className="center">
           <h1>{name}</h1>
         </div>
-        <div className="right">{logOut}</div>
+        <div className="right">{logoutButton}</div>
       </div>
 
       <div className="content-body">{content}</div>

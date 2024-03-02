@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 import supabase from "../../supabase";
 
 const Treyson = () => {
@@ -8,7 +8,11 @@ const Treyson = () => {
   const [users, setUsers] = useState(null);
   const [journal, setJournal] = useState(null);
   const [affirmations, setAffirmations] = useState(null);
-
+  const navigate = useNavigate();
+  var userId = localStorage.getItem("userId");
+  if (!userId) {
+    navigate("/login");
+  }
   useEffect(() => {
     const fetchUser = async () => {
       try {
