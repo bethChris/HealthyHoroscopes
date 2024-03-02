@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import supabase from "../../supabase";
 const AffirmationHistory = () => {
   const [history, setHistory] = useState([]);
   const [list, setList] = useState(<p>Loading...</p>);
@@ -9,23 +10,24 @@ const AffirmationHistory = () => {
     navigate("/login");
   }
   useEffect(() => {
+    const userId = localStorage.getItem("userId");
     async function fetchData() {
       //TODO const resp = await fetch(`http://localhost:2999/horoscope/bday:${userBirthday}/color:${userColor}`);
       //const result = await resp.json();
-      const result = [
-        {
-          text: "here is affirmation 1",
-          id: 1,
-        },
-        {
-          text: "here is affirmation 2",
-          id: 2,
-        },
-        {
-          text: "here is affirmation 3",
-          id: 3,
-        },
-      ];
+      let { data: affirmations, errors } = await supabase
+        .from("affirmations")
+        .select("*")
+        .eq("user_id", userId);
+      const result = [];
+      for (let i = 0; i < affirmations.length; i++) {
+        result.push({
+          text: affirmations[i].content,
+          date: affirmations[i].date,
+          id: affirmations[i].id,
+        });
+      }
+      result.reverse();
+
       setHistory(result);
     }
 
@@ -45,7 +47,13 @@ const AffirmationHistory = () => {
     }
 
     const newList = history.map(function (entry) {
-      return <li key={entry.id}>{entry.text}</li>;
+      return (
+        <li key={entry.id}>
+          <p>{new Date(entry.date).toLocaleDateString()}</p>
+          <p>{entry.text}</p>
+          <br />
+        </li>
+      );
     });
     setList(newList);
   }, [history]);
