@@ -200,9 +200,8 @@ const Music = () => {
 
           <Button text={buttonText} handleClick={handleClick} />
 
-          <p className="more-margin bigger"></p>
+          <p className="p-music">{recDisplay}</p>
 
-          {recDisplay}
         </div>
       </div>
     </>
